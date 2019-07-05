@@ -4,7 +4,160 @@
 		<extension point="org.eclipse.cdt.core.LanguageSettingsProvider">
 			<provider copy-of="extension" id="org.eclipse.cdt.ui.UserLanguageSettingsProvider"/>
 			<provider-reference id="org.eclipse.cdt.core.ReferencedProjectsLanguageSettingsProvider" ref="shared-provider"/>
-			<provider class="org.eclipse.cdt.managedbuilder.language.settings.providers.GCCBuildCommandParser" id="org.eclipse.cdt.managedbuilder.core.GCCBuildCommandParser" keep-relative-paths="false" name="CDT GCC Build Output Parser" parameter="(.*gcc)|(.*[gc]\+\+)" prefer-non-shared="true"/>
+			<provider class="org.eclipse.cdt.managedbuilder.language.settings.providers.GCCBuildCommandParser" id="org.eclipse.cdt.managedbuilder.core.GCCBuildCommandParser" keep-relative-paths="false" name="CDT GCC Build Output Parser" parameter="(.*gcc)|(.*[gc]\+\+)" prefer-non-shared="true" store-entries-with-project="true">
+				<language id="org.eclipse.cdt.core.gcc">
+					<resource project-relative-path="main.c">
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/nfc/ndef/generic/message"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/nfc/t2t_lib"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/nfc/t4t_parser/hl_detection_procedure"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/ble/ble_services/ble_ancs_c"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/ble/ble_services/ble_ias_c"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/libraries/pwm"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/softdevice/s132/headers/nrf52"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/libraries/usbd/class/cdc/acm"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/libraries/usbd/class/hid/generic"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/libraries/usbd/class/msc"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/libraries/usbd/class/hid"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/modules/nrfx/hal"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/nfc/ndef/conn_hand_parser/le_oob_rec_parser"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/libraries/log"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/ble/ble_services/ble_gls"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/libraries/fstorage"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/nfc/ndef/text"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/libraries/mutex"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/libraries/gfx"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/libraries/bootloader/ble_dfu"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/nfc/ndef/connection_handover/common"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/libraries/fifo"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/boards"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/nfc/ndef/generic/record"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/nfc/t4t_parser/cc_file"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/ble/ble_advertising"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/external/utf_converter"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/ble/ble_services/ble_bas_c"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/modules/nrfx/drivers/include"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/libraries/experimental_task_manager"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/ble/ble_services/ble_hrs_c"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/nfc/ndef/connection_handover/le_oob_rec"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/libraries/queue"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/libraries/pwr_mgmt"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/ble/ble_dtm"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/toolchain/cmsis/include"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/ble/ble_services/ble_rscs_c"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/ble/common"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/ble/ble_services/ble_lls"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/libraries/bsp"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/ble/ble_db_discovery"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/nfc/ndef/connection_handover/ac_rec"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/ble/ble_services/ble_bas"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/libraries/mpu"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/libraries/experimental_section_vars"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/softdevice/s132/headers"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/ble/ble_services/ble_ans_c"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/libraries/slip"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/libraries/delay"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/libraries/mem_manager"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/libraries/csense_drv"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/libraries/memobj"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/ble/ble_services/ble_nus_c"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/softdevice/common"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/ble/ble_services/ble_ias"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/libraries/usbd/class/hid/mouse"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/libraries/ecc"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/ble/nrf_ble_scan"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/nfc/ndef/conn_hand_parser/ble_oob_advdata_parser"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/ble/ble_services/ble_dfu"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/external/fprintf"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/libraries/svc"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/libraries/atomic"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/libraries/scheduler"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/libraries/cli"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/ble/ble_services/ble_lbs"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/ble/ble_services/ble_hts"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/libraries/crc16"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/nfc/t4t_parser/apdu"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/libraries/util"/>
+						<entry kind="includePath" name="/${ProjName}/config">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/libraries/usbd/class/cdc"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/libraries/csense"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/libraries/balloc"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/libraries/low_power_pwm"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/libraries/hardfault"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/ble/ble_services/ble_cscs"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/libraries/uart"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/libraries/hci"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/libraries/usbd/class/hid/kbd"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/libraries/timer"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/integration/nrfx"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/nfc/t4t_parser/tlv"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/libraries/sortlist"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/libraries/spi_mngr"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/libraries/led_softblink"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/nfc/ndef/conn_hand_parser"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/libraries/sdcard"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/nfc/ndef/parser/record"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/modules/nrfx/mdk"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/ble/ble_services/ble_cts_c"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/ble/ble_services/ble_nus"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/libraries/twi_mngr"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/ble/ble_services/ble_hids"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/libraries/strerror"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/libraries/crc32"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/nfc/ndef/connection_handover/ble_oob_advdata"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/nfc/t2t_parser"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/nfc/ndef/connection_handover/ble_pair_msg"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/libraries/usbd/class/audio"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/nfc/t4t_lib/hal_t4t"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/nfc/t4t_lib"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/ble/peer_manager"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/drivers_nrf/usbd"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/libraries/ringbuf"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/ble/ble_services/ble_tps"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/nfc/ndef/parser/message"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/ble/ble_services/ble_dis"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/nfc/ndef/uri"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/ble/nrf_ble_gatt"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/ble/nrf_ble_qwr"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/libraries/gpiote"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/libraries/button"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/modules/nrfx"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/libraries/twi_sensor"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/integration/nrfx/legacy"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/libraries/usbd"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/nfc/ndef/connection_handover/ep_oob_rec"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/external/segger_rtt"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/libraries/atomic_fifo"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/ble/ble_services/ble_lbs_c"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/nfc/ndef/connection_handover/ble_pair_lib"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/libraries/crypto"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/ble/ble_racp"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/libraries/fds"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/nfc/ndef/launchapp"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/ble/ble_services/ble_hrs"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/ble/ble_services/ble_rscs"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/nfc/ndef/connection_handover/hs_rec"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/nfc/t2t_lib/hal_t2t"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/nfc/ndef/conn_hand_parser/ac_rec_parser"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/libraries/stack_guard"/>
+						<entry kind="includePath" name="C:/Senseback/nRF5_SDK_15.2.0_9412b96/components/libraries/log/src"/>
+						<entry kind="macro" name="BOARD_PCA10040" value=""/>
+						<entry kind="macro" name="CONFIG_GPIO_AS_PINRESET" value=""/>
+						<entry kind="macro" name="FLOAT_ABI_HARD" value=""/>
+						<entry kind="macro" name="NRF52" value=""/>
+						<entry kind="macro" name="NRF52832_XXAA" value=""/>
+						<entry kind="macro" name="NRF52_PAN_74" value=""/>
+						<entry kind="macro" name="NRF_SD_BLE_API_VERSION" value="6"/>
+						<entry kind="macro" name="S132" value=""/>
+						<entry kind="macro" name="SOFTDEVICE_PRESENT" value=""/>
+						<entry kind="macro" name="SWI_DISABLE0" value=""/>
+						<entry kind="macro" name="__HEAP_SIZE" value="8192"/>
+						<entry kind="macro" name="__STACK_SIZE" value="8192"/>
+					</resource>
+				</language>
+			</provider>
 			<provider class="org.eclipse.cdt.managedbuilder.language.settings.providers.GCCBuiltinSpecsDetector" console="false" env-hash="924469601237985379" id="ilg.gnuarmeclipse.managedbuild.cross.GCCBuiltinSpecsDetector" keep-relative-paths="false" name="CDT GCC Built-in Compiler Settings Cross ARM" parameter="arm-none-eabi-gcc ${FLAGS} ${cross_toolchain_flags} -E -P -v -dD &quot;${INPUTS}&quot;" prefer-non-shared="true">
 				<language-scope id="org.eclipse.cdt.core.gcc"/>
 				<language-scope id="org.eclipse.cdt.core.g++"/>
