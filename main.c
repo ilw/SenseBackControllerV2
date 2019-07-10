@@ -66,8 +66,9 @@
 #define APP_BLE_CONN_CFG_TAG    1                                       /**< Tag that refers to the BLE stack configuration set with @ref sd_ble_cfg_set. The default tag is @ref BLE_CONN_CFG_TAG_DEFAULT. */
 #define APP_BLE_OBSERVER_PRIO   3                                       /**< BLE observer priority of the application. There is no need to modify this value. */
 
-#define UART_TX_BUF_SIZE        256                                     /**< UART TX buffer size. */
-#define UART_RX_BUF_SIZE        256                                     /**< UART RX buffer size. */
+//TODO Change this?
+#define UART_TX_BUF_SIZE        8192                                     /**< UART TX buffer size. */
+#define UART_RX_BUF_SIZE        2048                                    /**< UART RX buffer size. */
 
 #define NUS_SERVICE_UUID_TYPE   BLE_UUID_TYPE_VENDOR_BEGIN              /**< UUID type for the Nordic UART Service (vendor specific). */
 
@@ -87,6 +88,19 @@ static ble_uuid_t const m_nus_uuid =
     .uuid = BLE_UUID_NUS_SERVICE,
     .type = NUS_SERVICE_UUID_TYPE
 };
+
+
+#define SENSEBACK_BUFFER_COUNT 52
+
+#define BUFFER_LENGTH 256
+
+static volatile uint8_t senseback_buff_length[SENSEBACK_BUFFER_COUNT] = {0};
+static uint8_t senseback_buff[SENSEBACK_BUFFER_COUNT][BUFFER_LENGTH] ={0};
+static uint8_t volatile senseback_idx =0;
+
+static uint8_t prev_senseback_idx=0;
+
+
 
 
 /**@brief Function for handling asserts in the SoftDevice.
@@ -321,7 +335,13 @@ static void ble_nus_c_evt_handler(ble_nus_c_t * p_ble_nus_c, ble_nus_c_evt_t con
             break;
 
         case BLE_NUS_C_EVT_NUS_TX_EVT:
-            ble_nus_chars_received_uart_print(p_ble_nus_evt->p_data, p_ble_nus_evt->data_len);
+//            ble_nus_chars_received_uart_print(p_ble_nus_evt->p_data, p_ble_nus_evt->data_len);
+
+        	for (int i=0;i<p_ble_nus_evt->data_len;i++) senseback_buff[senseback_idx][i] = * (p_ble_nus_evt->p_data +i);
+        	senseback_buff_length[senseback_idx] =p_ble_nus_evt->data_len;
+			NRF_LOG_DEBUG("Senseback data length: %d, buffer %d", p_ble_nus_evt->data_len, senseback_idx);
+			if (((senseback_idx+1) % SENSEBACK_BUFFER_COUNT) == prev_senseback_idx) NRF_LOG_ERROR("EEG data lost");
+			senseback_idx = (senseback_idx+1) % SENSEBACK_BUFFER_COUNT;
             break;
 
         case BLE_NUS_C_EVT_DISCONNECTED:
@@ -652,6 +672,12 @@ int main(void)
     // Enter main loop.
     for (;;)
     {
+    	if(prev_senseback_idx != senseback_idx)
+    	{
+    		// Send data through CDC ACM
+    		ble_nus_chars_received_uart_print(senseback_buff[prev_senseback_idx], senseback_buff_length[prev_senseback_idx]);
+    		prev_senseback_idx = (prev_senseback_idx+1) % SENSEBACK_BUFFER_COUNT;
+    	}
         idle_state_handle();
     }
 }
