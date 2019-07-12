@@ -220,8 +220,8 @@ static void ble_nus_chars_received_uart_print(uint8_t * p_data, uint16_t data_le
 {
     ret_code_t ret_val;
 
-    NRF_LOG_DEBUG("Receiving data.");
-    NRF_LOG_HEXDUMP_DEBUG(p_data, data_len);
+    NRF_LOG_INFO("Receiving packet %d, length %d",(p_data[0]<<8)+p_data[1],data_len );
+//    NRF_LOG_HEXDUMP_DEBUG(p_data, data_len);
 
     for (uint32_t i = 0; i < data_len; i++)
     {
@@ -234,10 +234,6 @@ static void ble_nus_chars_received_uart_print(uint8_t * p_data, uint16_t data_le
                 APP_ERROR_CHECK(ret_val);
             }
         } while (ret_val == NRF_ERROR_BUSY);
-    }
-    if (p_data[data_len-1] == '\r')
-    {
-        while (app_uart_put('\n') == NRF_ERROR_BUSY);
     }
     if (ECHOBACK_BLE_UART_DATA)
     {
@@ -274,14 +270,14 @@ void uart_event_handle(app_uart_evt_t * p_event)
             UNUSED_VARIABLE(app_uart_get(&data_array[index]));
             index++;
 
-            if ((data_array[index - 1] == '\n') || (index >= (m_ble_nus_max_data_len)))
+            if (((data_array[index - 2] == 0xFF) && (data_array[index - 1] == 0x00) ) || (index >= (m_ble_nus_max_data_len)))
             {
                 NRF_LOG_DEBUG("Ready to send data over BLE NUS");
                 NRF_LOG_HEXDUMP_DEBUG(data_array, index);
 
                 do
                 {
-                    ret_val = ble_nus_c_string_send(&m_ble_nus_c, data_array, index);
+                    ret_val = ble_nus_c_string_send(&m_ble_nus_c, data_array, index-2);
                     if ( (ret_val != NRF_ERROR_INVALID_STATE) && (ret_val != NRF_ERROR_RESOURCES) )
                     {
                         APP_ERROR_CHECK(ret_val);
@@ -672,7 +668,7 @@ int main(void)
     // Enter main loop.
     for (;;)
     {
-    	if(prev_senseback_idx != senseback_idx)
+    	while(prev_senseback_idx != senseback_idx)
     	{
     		// Send data through CDC ACM
     		ble_nus_chars_received_uart_print(senseback_buff[prev_senseback_idx], senseback_buff_length[prev_senseback_idx]);
