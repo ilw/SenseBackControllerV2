@@ -120,50 +120,57 @@ class sbGUI:
         self.cCheck4.grid(row=row_counter, column=4)
         
         ##############################################################
-        # row_counter += 1
-        # self.c_text = tk.Label(frame, text='Detect_en:') 
-        # self.c_text.grid(row=row_counter, column=0)
+        row_counter += 1
+        self.d_text = tk.Label(frame, text='Detect_en:') 
+        self.d_text.grid(row=row_counter, column=0)
         
-        # self.c1Spike = tk.IntVar()
-        # self.c2Spike = tk.IntVar()
-        # self.c3Spike = tk.IntVar()
-        # self.c4Spike = tk.IntVar()
+        self.d1 = tk.IntVar()
+        self.d2 = tk.IntVar()
+        self.d3 = tk.IntVar()
+        self.d4 = tk.IntVar()
         
-        # self.cCheck1Spike = tk.Checkbutton(frame,variable=self.c1Spike)
-        # self.cCheck2Spike = tk.Checkbutton(frame,variable=self.c2Spike)
-        # self.cCheck3Spike = tk.Checkbutton(frame,variable=self.c3Spike)
-        # self.cCheck4Spike = tk.Checkbutton(frame,variable=self.c4Spike)
-        
-        
+        self.dCheck1 = tk.Checkbutton(frame,variable=self.d1)
+        self.dCheck2 = tk.Checkbutton(frame,variable=self.d2)
+        self.dCheck3 = tk.Checkbutton(frame,variable=self.d3)
+        self.dCheck4 = tk.Checkbutton(frame,variable=self.d4)
         
         
-        # self.cCheck1Spike.grid(row=row_counter, column=1)
-        # self.cCheck2Spike.grid(row=row_counter, column=2)
-        # self.cCheck3Spike.grid(row=row_counter, column=3)
-        # self.cCheck4Spike.grid(row=row_counter, column=4)
         
+        
+        self.dCheck1.grid(row=row_counter, column=1)
+        self.dCheck2.grid(row=row_counter, column=2)
+        self.dCheck3.grid(row=row_counter, column=3)
+        self.dCheck4.grid(row=row_counter, column=4)
+        
+
         ##############################################################
-        # row_counter += 1
-        # self.c_text = tk.Label(frame, text='Thresh:') 
-        # self.c_text.grid(row=row_counter, column=0)
+        row_counter += 1
+        self.th_text = tk.Label(frame, text='Thresh:') 
+        self.th_text.grid(row=row_counter, column=0)
         
-        # self.c1Thresh = tk.IntVar()
-        # self.c2Thresh = tk.IntVar()
-        # self.c3Thresh = tk.IntVar()
-        # self.c4Thresh = tk.IntVar()
+        self.th1 = tk.IntVar()
+        self.th2 = tk.IntVar()
+        self.th3 = tk.IntVar()
+        self.th4 = tk.IntVar()
         
-        # self.cCheck1Thresh = tk.Entry(frame)
-        # self.cCheck2Thresh = tk.Entry(frame)
-        # self.cCheck3Thresh = tk.Entry(frame)
-        # self.cCheck4Thresh = tk.Entry(frame)
+        self.cCheck1Thresh = tk.Entry(frame,text=self.th1)
+        self.cCheck2Thresh = tk.Entry(frame,text=self.th2)
+        self.cCheck3Thresh = tk.Entry(frame,text=self.th3)
+        self.cCheck4Thresh = tk.Entry(frame,text=self.th4)
+        
+        self.th1.set(255)
+        self.th2.set(255)
+        self.th3.set(255)
+        self.th4.set(255)
+
         
         
-        
-        
-        # self.cCheck1Thresh.grid(row=row_counter, column=1)
-        # self.cCheck2Thresh.grid(row=row_counter, column=2)
-        # self.cCheck3Thresh.grid(row=row_counter, column=3)
-        # self.cCheck4Thresh.grid(row=row_counter, column=4)
+        self.cCheck1Thresh.grid(row=row_counter, column=1)
+        self.cCheck2Thresh.grid(row=row_counter, column=2)
+        self.cCheck3Thresh.grid(row=row_counter, column=3)
+        self.cCheck4Thresh.grid(row=row_counter, column=4)
+
+
         
         ##############################################################
         row_counter += 1
@@ -351,8 +358,15 @@ class sbGUI:
         gain3 = self.gOptionList.index(self.gVal3.get())
         gain4 = self.gOptionList.index(self.gVal4.get())
         
+        th1 = int(self.cCheck1Thresh.get())
+        th2 = int(self.cCheck2Thresh.get())
+        th3 = int(self.cCheck3Thresh.get())
+        th4 = int(self.cCheck4Thresh.get() )       
+        
         print('block ', self.b_entry.get())
         print('channel bits ', self.c1.get()+2*self.c2.get()+4*self.c3.get() + 8*self.c4.get())
+        print('Detect enable bits ', self.d1.get()+2*self.d2.get()+4*self.d3.get() + 8*self.d4.get())
+        print('Thresholds: ' + str(th1) + ', '+ str(th2) + ', '+ str(th3) + ', ' + str(th4))
         print('gain ', gain1,gain2,gain3,gain4)
         print('lfp ',  self.lfp1.get()+2*self.lfp2.get()+4*self.lfp3.get()+8*self.lfp4.get())
         print('lp ', self.lp1.get()+2*self.lp2.get()+4*self.lp3.get()+8*self.lp4.get())
@@ -366,6 +380,7 @@ class sbGUI:
         
         block = int(self.b_entry.get())
         ch_bits = self.c1.get()+2*self.c2.get()+4*self.c3.get() + 8*self.c4.get()
+        det_en = self.d1.get()+2*self.d2.get()+4*self.d3.get() + 8*self.d4.get()
         iir = self.iir1.get()+2*self.iir2.get()+4*self.iir3.get()+8*self.iir4.get()
         A0 = (gain1 & 1)+ 2*(gain2 & 1) +4*(gain3 & 1)+8*(gain4 & 1)
         A1 = ((gain1 & 2)+ 2*(gain2 & 2) +4*(gain3 & 2)+8*(gain4 & 2))/2
@@ -374,7 +389,7 @@ class sbGUI:
         bits_hp = self.hpOptionList.tolist().index(int(self.hpVal.get()))
         shift =  self.iirOptionList.index(self.iirVal.get())+1
         
-        sb.enRec(self.ser,block,ch_bits,iir,A0,A1,LFP,LP,bits_hp,shift)
+        sb.enRec(self.ser,block,ch_bits,iir,A0,A1,LFP,LP,bits_hp,shift,det_en,th1,th2,th3,th4)
         
         
 

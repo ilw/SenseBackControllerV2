@@ -85,20 +85,24 @@ def enStimCfg(ser,stimCfg):
     
     sendData(ser)
     
-def enRec(ser,block,ch_bits,iir,A0,A1,LFP,LP,bits_hp,shift):
+def enRec(ser,block,ch_bits,iir,A0,A1,LFP,LP,bits_hp,shift,det_en=0,thresh0=255,thresh1=255,thresh2=255,thresh3=255):
     if ch_bits>15 | ch_bits<0 | iir>15 | iir <0 | A0>15 | A0<0 | \
             A1>15 | A1<0 |LFP>15 | LFP<0 | LP>15 | LP<0 | block>7 \
             | block<0 | bits_hp >31 | bits_hp<0 | shift <0 | shift >9 \
-            | spd<0 |spd>15:
+            | spd<0 |spd>15 | det_en<0 | det_en>15:
         print ("Error ch_bits<16, iir<16, A0<16, A1<16, LFP<16,LP<16, block<8, bits_hp<32, shift should be 1 - 9 if using iir")
         return
     
     
-    byte0 = int('{:08b}'.format(ch_bits<<4)[::-1], 2) #reverses order of bits in a byte
+    byte0 = int('{:08b}'.format(ch_bits<<4 | det_en)[::-1], 2) #reverses order of bits in a byte
     #byte1 = int('{:08b}'.format( iir | (shift<<4))[::-1], 2)   
     byte1 = int('{:08b}'.format( (iir<<4) | shift)[::-1], 2)   
     byte2 = int('{:08b}'.format((A1<<4)|A0)[::-1], 2) 
     byte3 = int('{:08b}'.format((LFP<<4) |LP)[::-1], 2)
+    byte4 = int('{:08b}'.format(thresh0)[::-1], 2)
+    byte5 = int('{:08b}'.format(thresh1)[::-1], 2)
+    byte6 = int('{:08b}'.format(thresh2)[::-1], 2)
+    byte7 = int('{:08b}'.format(thresh3)[::-1], 2)
     byte13 = int('{:08b}'.format(bits_hp<<3)[::-1], 2) #TODO Should i be shifting this by 3 bits??
     #byte13 = (bits_hp<<3) #TODO Should i be shifting this by 3 bits??
     byte8 = block   | 8
@@ -110,6 +114,10 @@ def enRec(ser,block,ch_bits,iir,A0,A1,LFP,LP,bits_hp,shift):
     writeReg(ser,1,byte1);
     writeReg(ser,2,byte2);
     writeReg(ser,3,byte3);
+    writeReg(ser,4,byte4);
+    writeReg(ser,5,byte5);
+    writeReg(ser,6,byte6);
+    writeReg(ser,7,byte7);
     writeReg(ser,13,byte13);
     writeReg(ser,8,byte8);
     
